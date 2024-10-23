@@ -9,9 +9,11 @@
     <string name="number_7">7</string>
     <string name="number_8">8</string>
     <string name="number_9">9</string>
+    <string name="number_0">0</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="multiply">*</string>
     <string name="divide">/</string>
-    <string name="result">Result</string>"
+    <string name="comma">.</string>
+    <string name="result">=</string>"
 </resources>

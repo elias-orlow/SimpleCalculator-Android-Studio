@@ -23,7 +23,7 @@
         android:id="@+id/textResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="75dp"
         android:textSize="50sp"
         android:fontFamily="@font/digital"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,10 +32,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="100dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,8 +58,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_1" />
+                android:text="@string/number_1"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/button_number_2"
@@ -71,8 +71,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_2" />
+                android:text="@string/number_2"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/button_number_3"
@@ -84,8 +84,21 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_3" />
+                android:text="@string/number_3"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/digital"
+                android:text="@string/plus"
+                android:textSize="30sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,8 +116,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_4" />
+                android:text="@string/number_4"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/button_number_5"
@@ -116,8 +129,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_5" />
+                android:text="@string/number_5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/button_number_6"
@@ -129,8 +142,21 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_6" />
+                android:text="@string/number_6"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/digital"
+                android:text="@string/minus"
+                android:textSize="30sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -148,8 +174,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_7" />
+                android:text="@string/number_7"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/button_number_8"
@@ -161,8 +187,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_8" />
+                android:text="@string/number_8"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/button_number_9"
@@ -174,40 +200,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/number_9" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button_plus"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/plus" />
-
-            <Button
-                android:id="@+id/button_minus"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/minus" />
+                android:text="@string/number_9"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/button_multiply"
@@ -219,8 +213,53 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/multiply" />
+                android:text="@string/multiply"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_result"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/digital"
+                android:text="@string/result"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button_number_0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/digital"
+                android:text="@string/number_0"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button_comma"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/digital"
+                android:text="@string/comma"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/button_divide"
@@ -232,27 +271,9 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/digital"
-                android:textSize="30sp"
-                android:text="@string/divide" />
+                android:text="@string/divide"
+                android:textSize="30sp" />
         </LinearLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/button_result"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/digital"
-                android:textSize="50dp"
-                android:text="@string/result" />
-
-        </FrameLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

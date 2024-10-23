@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
+import java.math.BigDecimal;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -34,27 +37,39 @@ public class MainActivity extends AppCompatActivity {
         Button button_number_7 = findViewById(R.id.button_number_7);
         Button button_number_8 = findViewById(R.id.button_number_8);
         Button button_number_9 = findViewById(R.id.button_number_9);
+        Button button_number_0 = findViewById(R.id.button_number_0);
         Button button_plus = findViewById(R.id.button_plus);
         Button button_minus = findViewById(R.id.button_minus);
         Button button_multiply = findViewById(R.id.button_multiply);
         Button button_divide = findViewById(R.id.button_divide);
         Button button_result = findViewById(R.id.button_result);
+        Button button_comma = findViewById(R.id.button_comma);
 
         final byte[] status = {0};
         final String[] number_1 = {""};
         final String[] number_2 = {""};
         final char[] todo = new char[1];
-        final float[] result = {0};
+        final BigDecimal[] result = {new BigDecimal(0)};
 
         button_number_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_1.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_1.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_1.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_1.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_1.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_1.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -63,11 +78,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_2.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_2.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_2.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_2.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_2.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_2.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -76,11 +101,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_3.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_3.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_3.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_3.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_3.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_3.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -89,11 +124,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_4.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_4.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_4.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_4.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_4.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_4.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -102,11 +147,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_5.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_5.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_5.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_5.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_5.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_5.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -115,11 +170,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_6.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_6.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_6.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_6.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_6.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_6.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -128,11 +193,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_7.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_7.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_7.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_7.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_7.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_7.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -141,11 +216,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_8.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_8.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_8.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_8.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_8.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_8.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -154,11 +239,55 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    number_1[0] = number_1[0].concat(String.valueOf(button_number_9.getText()));
-                    textResult.setText(number_1[0]);
+                    if (number_1[0].equals("0")) {
+                        number_1[0] = String.valueOf(button_number_9.getText());
+                        textResult.setText(number_1[0]);
+                    } else {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_9.getText()));
+                        textResult.setText(number_1[0]);
+                    }
                 } else if (status[0] == 1) {
-                    number_2[0] = number_2[0].concat(String.valueOf(button_number_9.getText()));
-                    textResult.setText(number_2[0]);
+                    if (number_2[0].equals("0")) {
+                        number_2[0] = String.valueOf(button_number_9.getText());
+                        textResult.setText(number_2[0]);
+                    } else {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_9.getText()));
+                        textResult.setText(number_2[0]);
+                    }
+                }
+            }
+        });
+
+        button_number_0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status[0] == 0) {
+                    if (!number_1[0].equals("0")) {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_number_0.getText()));
+                        textResult.setText(number_1[0]);
+                    }
+                } else if (status[0] == 1) {
+                    if (!number_2[0].equals("0")) {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_number_0.getText()));
+                        textResult.setText(number_2[0]);
+                    }
+                }
+            }
+        });
+
+        button_comma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status[0] == 0) {
+                    if (!number_1[0].isEmpty()) {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_comma.getText()));
+                        textResult.setText(number_1[0]);
+                    }
+                } else if (status[0] == 1) {
+                    if (!number_2[0].isEmpty()) {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_comma.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -203,28 +332,60 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         button_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (status[0] == 0 || number_1[0].equals("") || number_2[0].equals("")){
+                if (status[0] == 0 || number_1[0].isEmpty() || number_2[0].isEmpty()) {
                     textResult.setText("ERROR");
-                }
+                } else {
+                    BigDecimal num1 = new BigDecimal(number_1[0]);
+                    BigDecimal num2 = new BigDecimal(number_2[0]);
 
-                if (todo[0] == '+') {
-                    result[0] = Float.parseFloat(number_1[0]) + Float.parseFloat(number_2[0]);
-                    textResult.setText(String.valueOf(result[0]));
-                }
-                if (todo[0] == '-') {
-                    result[0] = Float.parseFloat(number_1[0]) - Float.parseFloat(number_2[0]);
-                    textResult.setText(String.valueOf(result[0]));
-                }
-                if (todo[0] == '*') {
-                    result[0] = Float.parseFloat(number_1[0]) * Float.parseFloat(number_2[0]);
-                    textResult.setText(String.valueOf(result[0]));
-                }
-                if (todo[0] == '/') {
-                    result[0] = Float.parseFloat(number_1[0]) / Float.parseFloat(number_2[0]);
-                    textResult.setText(String.valueOf(result[0]));
+                    if (todo[0] == '+') {
+                        result[0] = num1.add(num2);
+                        result[0] = result[0].stripTrailingZeros();
+                        String resultStr = result[0].toPlainString();
+                        if (!resultStr.equals("0")) {
+                            resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
+                        }
+
+                        textResult.setText(resultStr);
+                    }
+                    if (todo[0] == '-') {
+                        result[0] = num1.subtract(num2);
+                        result[0] = result[0].stripTrailingZeros();
+                        String resultStr = result[0].toPlainString();
+                        if (!resultStr.equals("0")) {
+                            resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
+                        }
+
+                        textResult.setText(resultStr);
+                    }
+                    if (todo[0] == '*') {
+                        result[0] = num1.multiply(num2);
+                        result[0] = result[0].stripTrailingZeros();
+                        String resultStr = result[0].toPlainString();
+                        if (!resultStr.equals("0")) {
+                            resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
+                        }
+
+                        textResult.setText(resultStr);
+                    }
+                    if (todo[0] == '/') {
+                        if (num2.compareTo(BigDecimal.ZERO) == 0) {
+                            textResult.setText("ERROR: Division by zero");
+                        } else {
+                            result[0] = num1.divide(num2, 10, BigDecimal.ROUND_HALF_UP);
+                            result[0] = result[0].stripTrailingZeros();
+                            String resultStr = result[0].toPlainString();
+                            if (!resultStr.equals("0")) {
+                                resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
+                            }
+
+                            textResult.setText(resultStr);
+                        }
+                    }
                 }
 
                 number_1[0] = "";
