@@ -279,12 +279,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    if (!number_1[0].isEmpty()) {
+                    if (!number_1[0].isEmpty() && !number_1[0].contains(".")) {
                         number_1[0] = number_1[0].concat(String.valueOf(button_comma.getText()));
                         textResult.setText(number_1[0]);
                     }
                 } else if (status[0] == 1) {
-                    if (!number_2[0].isEmpty()) {
+                    if (!number_2[0].isEmpty()  && !number_2[0].contains(".")) {
                         number_2[0] = number_2[0].concat(String.valueOf(button_comma.getText()));
                         textResult.setText(number_2[0]);
                     }
@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
         button_plus.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (status[0] == 0) {
+                if (status[0] == 0 && !number_1[0].isEmpty()) {
                     status[0] = 1;
                     todo[0] = '+';
                 }
@@ -306,8 +306,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (status[0] == 0) {
-                    status[0] = 1;
-                    todo[0] = '-';
+                    if (number_1[0].isEmpty()) {
+                        number_1[0] = number_1[0].concat(String.valueOf(button_minus.getText()));
+                        textResult.setText(number_1[0]);
+                    }
+                    else if (!number_1[0].equals("-")) {
+                        status[0] = 1;
+                        todo[0] = '-';
+                    }
+                } else if (status[0] == 1) {
+                    if (number_2[0].isEmpty()) {
+                        number_2[0] = number_2[0].concat(String.valueOf(button_minus.getText()));
+                        textResult.setText(number_2[0]);
+                    }
                 }
             }
         });
@@ -315,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
         button_multiply.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (status[0] == 0) {
+                if (status[0] == 0 && !number_1[0].isEmpty()) {
                     status[0] = 1;
                     todo[0] = '*';
                 }
@@ -325,7 +336,7 @@ public class MainActivity extends AppCompatActivity {
         button_divide.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (status[0] == 0) {
+                if (status[0] == 0 && !number_1[0].isEmpty()) {
                     status[0] = 1;
                     todo[0] = '/';
                 }
@@ -336,7 +347,8 @@ public class MainActivity extends AppCompatActivity {
         button_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (status[0] == 0 || number_1[0].isEmpty() || number_2[0].isEmpty()) {
+                if (status[0] == 0 || number_1[0].isEmpty() || number_2[0].isEmpty()
+                        || number_1[0].equals("-") || number_2[0].equals("-") ) {
                     textResult.setText("ERROR");
                 } else {
                     BigDecimal num1 = new BigDecimal(number_1[0]);
