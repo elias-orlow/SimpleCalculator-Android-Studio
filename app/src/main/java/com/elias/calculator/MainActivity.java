@@ -350,6 +350,7 @@ public class MainActivity extends AppCompatActivity {
                 if (status[0] == 0 || number_1[0].isEmpty() || number_2[0].isEmpty()
                         || number_1[0].equals("-") || number_2[0].equals("-") ) {
                     textResult.setText("ERROR");
+                    number_1[0] = "";
                 } else {
                     BigDecimal num1 = new BigDecimal(number_1[0]);
                     BigDecimal num2 = new BigDecimal(number_2[0]);
@@ -361,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!resultStr.equals("0")) {
                             resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
                         }
-
+                        number_1[0] = resultStr;
                         textResult.setText(resultStr);
                     }
                     if (todo[0] == '-') {
@@ -371,7 +372,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!resultStr.equals("0")) {
                             resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
                         }
-
+                        number_1[0] = resultStr;
                         textResult.setText(resultStr);
                     }
                     if (todo[0] == '*') {
@@ -381,12 +382,13 @@ public class MainActivity extends AppCompatActivity {
                         if (!resultStr.equals("0")) {
                             resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
                         }
-
+                        number_1[0] = resultStr;
                         textResult.setText(resultStr);
                     }
                     if (todo[0] == '/') {
                         if (num2.compareTo(BigDecimal.ZERO) == 0) {
                             textResult.setText("ERROR: Division by zero");
+                            number_1[0] = "";
                         } else {
                             result[0] = num1.divide(num2, 10, BigDecimal.ROUND_HALF_UP);
                             result[0] = result[0].stripTrailingZeros();
@@ -394,13 +396,12 @@ public class MainActivity extends AppCompatActivity {
                             if (!resultStr.equals("0")) {
                                 resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
                             }
-
+                            number_1[0] = resultStr;
                             textResult.setText(resultStr);
                         }
                     }
                 }
 
-                number_1[0] = "";
                 number_2[0] = "";
                 status[0] = 0;
             }
