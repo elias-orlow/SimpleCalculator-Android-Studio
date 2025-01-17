@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,12 +46,46 @@ public class MainActivity extends AppCompatActivity {
         Button button_divide = findViewById(R.id.button_divide);
         Button button_result = findViewById(R.id.button_result);
         Button button_comma = findViewById(R.id.button_comma);
+        Button button_clear = findViewById(R.id.button_clear);
+        Button button_delete = findViewById(R.id.button_delete);
+        Button button_degree = findViewById(R.id.button_degree);
+        Button button_root = findViewById(R.id.button_root);
+
 
         final byte[] status = {0};
         final String[] number_1 = {""};
         final String[] number_2 = {""};
         final char[] todo = new char[1];
         final BigDecimal[] result = {new BigDecimal(0)};
+
+
+        button_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textResult.setText("CLEAR");
+                number_1[0] = "";
+                number_2[0] = "";
+                status[0] = 0;
+                result[0] = new BigDecimal(0);
+            }
+        });
+
+        button_delete.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (status[0] == 0) {
+                    if (!number_1[0].isEmpty()) {
+                        number_1[0] = number_1[0].substring(0, number_1[0].length() - 1);
+                        textResult.setText(number_1[0]);
+                }
+            } else if (status[0] == 1) {
+                if (!number_2[0].isEmpty()) {
+                    number_2[0] = number_2[0].substring(0, number_2[0].length() - 1);
+                    textResult.setText(number_2[0]);
+                }
+            }
+          }
+        });
 
         button_number_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -343,6 +379,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        button_degree.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (status[0] == 0) {
+                    status[0] = 1;
+                    todo[0] = 'd';
+                }
+            }
+        });
+
+        button_root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status[0] == 0) {
+                    if (number_1[0].isEmpty()) {
+                        number_1[0] = number_1[0].concat(String.valueOf(2));
+                    }
+                    status[0] = 1;
+                    todo[0] = 'r';
+                }
+            }
+        });
+
 
         button_result.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -354,6 +413,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     BigDecimal num1 = new BigDecimal(number_1[0]);
                     BigDecimal num2 = new BigDecimal(number_2[0]);
+                    MathContext mc = new MathContext(10);
 
                     if (todo[0] == '+') {
                         result[0] = num1.add(num2);
@@ -400,12 +460,52 @@ public class MainActivity extends AppCompatActivity {
                             textResult.setText(resultStr);
                         }
                     }
-                }
+                    if (todo[0] == 'd' || todo[0] == 'r') {
+                        if (todo[0] == 'r'){
+                            if (num1.compareTo(BigDecimal.ZERO) == 0) {
+                                textResult.setText("ERROR");
+                                number_1[0] = "";
+                                number_2[0] = "";
+                                status[0] = 0;
+                                return;
+                            }
+                            BigDecimal saver = new BigDecimal(number_1[0]);
+                            num1 = num2;
+                            num2 = BigDecimal.ONE.divide(saver, new MathContext(15, RoundingMode.HALF_UP));
+                        }
+                        if (num2.stripTrailingZeros().scale() <= 0){
+                            if (num2.intValue() < 0) {
+                                result[0] = BigDecimal.ONE.divide(num1.pow(-num2.intValue()), MathContext.DECIMAL128);
+                            } else {
+                                result[0] = num1.pow(num2.intValue());
+                            }
+                        } else {
+                            if (num1.compareTo(BigDecimal.ZERO) < 0) {
+                                textResult.setText("ERROR");
+                                number_1[0] = "";
+                                number_2[0] = "";
+                                status[0] = 0;
+                                return;
+                            } else {
+                                double baseAsDouble = num1.doubleValue();
+                                double log = Math.log(baseAsDouble);
+                                double resultAsDouble = Math.exp(num2.doubleValue() * log);
 
+                                result[0] = new BigDecimal(resultAsDouble, mc);
+                            }
+                        }
+                        result[0] = result[0].stripTrailingZeros();
+                        String resultStr = result[0].toPlainString();
+                        if (!resultStr.equals("0")) {
+                            resultStr = resultStr.replaceFirst("^0+(?![\\d.])", "");
+                        }
+                        number_1[0] = resultStr;
+                        textResult.setText(resultStr);
+                    }
+                }
                 number_2[0] = "";
                 status[0] = 0;
             }
         });
-
     }
 }

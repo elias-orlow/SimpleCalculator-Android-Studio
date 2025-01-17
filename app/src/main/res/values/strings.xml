@@ -15,5 +15,9 @@
     <string name="multiply">*</string>
     <string name="divide">/</string>
     <string name="comma">.</string>
-    <string name="result">=</string>"
+    <string name="result">=</string>
+    <string name="degree">x<sup>x</sup></string>
+    <string name="root">&#8730;x</string>
+    <string name="delete">&lt;&lt;&lt;</string>
+    <string name="clear">C</string>
 </resources>
