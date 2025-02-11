@@ -17,6 +17,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView textResult;
+    final byte[] status = {0};
+    final String[] number_1 = {""};
+    final String[] number_2 = {""};
+    final char[] todo = new char[1];
+    final BigDecimal[] result = {new BigDecimal(0)};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        TextView textResult = findViewById(R.id.textResult);
+        textResult = findViewById(R.id.textResult);
         Button button_number_1 = findViewById(R.id.button_number_1);
         Button button_number_2 = findViewById(R.id.button_number_2);
         Button button_number_3 = findViewById(R.id.button_number_3);
@@ -50,13 +57,6 @@ public class MainActivity extends AppCompatActivity {
         Button button_delete = findViewById(R.id.button_delete);
         Button button_degree = findViewById(R.id.button_degree);
         Button button_root = findViewById(R.id.button_root);
-
-
-        final byte[] status = {0};
-        final String[] number_1 = {""};
-        final String[] number_2 = {""};
-        final char[] todo = new char[1];
-        final BigDecimal[] result = {new BigDecimal(0)};
 
 
         button_clear.setOnClickListener(new View.OnClickListener() {
@@ -87,212 +87,15 @@ public class MainActivity extends AppCompatActivity {
           }
         });
 
-        button_number_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_1.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_1.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_1.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_1.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
-
-        button_number_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_2.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_2.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_2.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_2.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
-
-        button_number_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_3.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_3.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_3.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_3.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
-
-        button_number_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_4.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_4.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_4.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_4.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
-
-        button_number_5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_5.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_5.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_5.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_5.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
-
-        button_number_6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_6.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_6.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_6.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_6.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
-
-        button_number_7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_7.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_7.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_7.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_7.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
-
-        button_number_8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_8.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_8.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_8.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_8.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
-
-        button_number_9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status[0] == 0) {
-                    if (number_1[0].equals("0")) {
-                        number_1[0] = String.valueOf(button_number_9.getText());
-                        textResult.setText(number_1[0]);
-                    } else {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_9.getText()));
-                        textResult.setText(number_1[0]);
-                    }
-                } else if (status[0] == 1) {
-                    if (number_2[0].equals("0")) {
-                        number_2[0] = String.valueOf(button_number_9.getText());
-                        textResult.setText(number_2[0]);
-                    } else {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_9.getText()));
-                        textResult.setText(number_2[0]);
-                    }
-                }
-            }
-        });
+        button_number_1.setOnClickListener(v -> setOnButtonListener(button_number_1));
+        button_number_2.setOnClickListener(v -> setOnButtonListener(button_number_2));
+        button_number_3.setOnClickListener(v -> setOnButtonListener(button_number_3));
+        button_number_4.setOnClickListener(v -> setOnButtonListener(button_number_4));
+        button_number_5.setOnClickListener(v -> setOnButtonListener(button_number_5));
+        button_number_6.setOnClickListener(v -> setOnButtonListener(button_number_6));
+        button_number_7.setOnClickListener(v -> setOnButtonListener(button_number_7));
+        button_number_8.setOnClickListener(v -> setOnButtonListener(button_number_8));
+        button_number_9.setOnClickListener(v -> setOnButtonListener(button_number_9));
 
         button_number_0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -507,5 +310,25 @@ public class MainActivity extends AppCompatActivity {
                 status[0] = 0;
             }
         });
+    }
+
+    private void setOnButtonListener(Button button ) {
+        if (status[0] == 0) {
+            if (number_1[0].equals("0")) {
+                number_1[0] = String.valueOf(button.getText());
+                textResult.setText(number_1[0]);
+            } else {
+                number_1[0] = number_1[0].concat(String.valueOf(button.getText()));
+                textResult.setText(number_1[0]);
+            }
+        } else if (status[0] == 1) {
+            if (number_2[0].equals("0")) {
+                number_2[0] = String.valueOf(button.getText());
+                textResult.setText(number_2[0]);
+            } else {
+                number_2[0] = number_2[0].concat(String.valueOf(button.getText()));
+                textResult.setText(number_2[0]);
+            }
+        }
     }
 }
