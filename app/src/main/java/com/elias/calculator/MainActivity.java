@@ -9,6 +9,7 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
@@ -102,12 +103,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (status[0] == 0) {
                     if (!number_1[0].equals("0")) {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_number_0.getText()));
+                        number_1[0] = number_1[0].concat("0");
                         textResult.setText(number_1[0]);
                     }
                 } else if (status[0] == 1) {
                     if (!number_2[0].equals("0")) {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_number_0.getText()));
+                        number_2[0] = number_2[0].concat("0");
                         textResult.setText(number_2[0]);
                     }
                 }
@@ -119,12 +120,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (status[0] == 0) {
                     if (!number_1[0].isEmpty() && !number_1[0].contains(".")) {
-                        number_1[0] = number_1[0].concat(String.valueOf(button_comma.getText()));
+                        number_1[0] = number_1[0].concat(".");
                         textResult.setText(number_1[0]);
                     }
                 } else if (status[0] == 1) {
                     if (!number_2[0].isEmpty()  && !number_2[0].contains(".")) {
-                        number_2[0] = number_2[0].concat(String.valueOf(button_comma.getText()));
+                        number_2[0] = number_2[0].concat(".");
                         textResult.setText(number_2[0]);
                     }
                 }
@@ -312,23 +313,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setOnButtonListener(Button button ) {
+    private void setOnButtonListener(@NonNull Button button) {
+        String buttonText = button.getText().toString();
         if (status[0] == 0) {
             if (number_1[0].equals("0")) {
-                number_1[0] = String.valueOf(button.getText());
-                textResult.setText(number_1[0]);
+                number_1[0] = buttonText;
             } else {
-                number_1[0] = number_1[0].concat(String.valueOf(button.getText()));
-                textResult.setText(number_1[0]);
+                number_1[0] = number_1[0].concat(buttonText);
             }
+            textResult.setText(number_1[0]);
         } else if (status[0] == 1) {
             if (number_2[0].equals("0")) {
-                number_2[0] = String.valueOf(button.getText());
-                textResult.setText(number_2[0]);
+                number_2[0] = buttonText;
             } else {
-                number_2[0] = number_2[0].concat(String.valueOf(button.getText()));
-                textResult.setText(number_2[0]);
+                number_2[0] = number_2[0].concat(buttonText);
             }
+            textResult.setText(number_2[0]);
         }
     }
 }
